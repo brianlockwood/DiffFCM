@@ -1,0 +1,10 @@
+find_package(pybind11 CONFIG)
+
+pybind11_add_module(basis_python LegendreBasis.cpp)
+pybind11_add_module(legendre_python LegendrePolynomials.cpp)
+pybind11_add_module(gauss_quadrature_python GaussLegendreQuadratureRule.cpp)
+pybind11_add_module(bspline_python BSplineBinding.cpp)
+target_link_libraries(basis_python PRIVATE basis)
+target_link_libraries(legendre_python PRIVATE basis types)
+target_link_libraries(gauss_quadrature_python PRIVATE basis)
+target_link_libraries(bspline_python PRIVATE basis)
